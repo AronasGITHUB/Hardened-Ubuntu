@@ -1,0 +1,39 @@
+# Ignore backup files
+*~ 
+*.bak
+*.tmp
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore log files
+*.log
+
+# Ignore compiled files
+*.o
+*.so
+*.dll
+
+# Ignore package management files
+node_modules/
+vendor/
+
+# Ignore specific files for configuration
+*.swp  # Vim swap files
+*.swo  # Vim swap files
+*.pid  # Process ID files
+
+# Ignore environment files
+.env
+.env.local
+
+# Ignore IDE specific files
+.vscode/
+.idea/
+*.iml
+
+# Ignore temporary files
+tmp/
+temp/
+cache/
