@@ -53,7 +53,7 @@ To install Ubuntu using the provided `autoinstall.yaml`, follow these steps:
 ## Additional Information
 
 - For detailed explanations of the configurations in the `autoinstall.yaml` file, refer to the comments within the file.
-- This project is maintained under the [GNU General Public License (GPL)](./License).
+- This project is maintained under the [GNU General Public License (GPL)](https://github.com/AronasGITHUB/Hardened-Ubuntu/blob/main/LICENSE).
 
 ## Contribution
 
