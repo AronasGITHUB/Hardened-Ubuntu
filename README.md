@@ -61,4 +61,4 @@ Contributions are welcome! Please submit a pull request or open an issue for any
 
 ## License
 
-This project is licensed under the GNU General Public License (GPL). See the [License](./License) file for more details.
+This project is licensed under the GNU General Public License (GPL). See the [License](https://github.com/AronasGITHUB/Hardened-Ubuntu/blob/main/LICENSE) file for more details.
