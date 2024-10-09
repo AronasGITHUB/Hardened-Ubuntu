@@ -19,6 +19,10 @@ The `autoinstall.yaml` file enables the automated deployment of a secure and pri
 - Automatic updates for system security
 - Configurations to disable unnecessary features that may compromise privacy
 
+## Important: Review the `autoinstall.yaml` File
+
+**Users are required to review the `autoinstall.yaml` file** before proceeding with the installation. Ensure that the configurations align with your security and privacy preferences, including hostname, username, and password settings. 
+
 ## Prerequisites
 
 - A bootable Ubuntu installation medium (USB/DVD).
@@ -49,7 +53,7 @@ To install Ubuntu using the provided `autoinstall.yaml`, follow these steps:
 ## Additional Information
 
 - For detailed explanations of the configurations in the `autoinstall.yaml` file, refer to the comments within the file.
-- This project is maintained under the [MIT License](./License).
+- This project is maintained under the [GNU General Public License (GPL)](./License).
 
 ## Contribution
 
@@ -57,5 +61,4 @@ Contributions are welcome! Please submit a pull request or open an issue for any
 
 ## License
 
-This project is licensed under the MIT License. See the [License](./License) file for more details.
-
+This project is licensed under the GNU General Public License (GPL). See the [License](./License) file for more details.
