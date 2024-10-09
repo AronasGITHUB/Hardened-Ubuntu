@@ -1,0 +1,71 @@
+#cloud-config
+# BEFORE MODIFICATION, SELLING, COPYING, ETC. PLEASE CHECK OUR LICENSE
+# LICENSES ARE NOT LEGAL ADVICE.
+autoinstall:
+  version: 1
+  identity:
+    hostname: hardened99$!"#&//Host  # Replace with your hostname (Optional)
+    username: hardened-ubuntu00?!"#  # Replace with your username (Optional)   
+    password: H@rd3n#dUb(nt)!  # Replace with your password (Optional)
+  locale: en_US.UTF-8
+  keyboard:
+    layout: us
+    variant: ''
+  storage:
+    config:
+      - type: disk
+        name: /dev/sda
+        wipe: superblock
+        preserve: false
+        match:
+          size: ">= 10GiB"
+      - type: partition
+        name: sda1
+        size: 10GiB
+        wipe: superblock
+        filesystem: ext4
+        mount: /
+  packages:
+    # Secure and private packages by default
+    - openssh-server  
+    - ufw             
+    - fail2ban        
+    - auditd          
+    - vim             
+    - tor             
+    - openvpn         
+    - firefox         
+    - pass            
+    - deja-dup        
+    - git             # For version control
+  late-commands:
+    # Secure and privacy stuff, along with hardened Firefox
+    # Please apply hardened Firefox at https://github.com/arkenfox/user.js
+    - echo "Provisioning complete!" > /var/log/provision.log
+    - apt update && apt upgrade -y  # Update and upgrade packages
+    - useradd -m -s /bin/bash hardened-ubuntu00?!"#  # Create user with bash shell
+    - echo 'hardened-ubuntu00?!"#:H@rd3n#dUb(nt)!' | chpasswd  
+    - ufw default deny incoming
+    - ufw default allow outgoing
+    - ufw allow 22/tcp  
+    - ufw enable
+    - systemctl enable fail2ban
+    - systemctl start fail2ban
+    - auditctl -e 1  
+    - echo 'hardened-ubuntu00?!"# ALL=(ALL) NOPASSWD: /usr/bin/systemctl restart some-service' >> /etc/sudoers
+    - mkdir -p /home/hardened-ubuntu00?!"#/.mozilla/firefox/default-release/  
+    - curl -L -o /home/hardened-ubuntu00?!"#/.mozilla/firefox/default-release/user.js https://raw.githubusercontent.com/arkenfox/user.js/main/user.js  # Downloads the user.js for Firefox
+    - chown -R hardened-ubuntu00?!"#:hardened-ubuntu00?!"# /home/hardened-ubuntu00?!"#/.mozilla/firefox/ 
+    
+    # Set up automatic updates for security
+    - apt install -y unattended-upgrades
+    - dpkg-reconfigure -f noninteractive unattended-upgrades
+
+    # Configure user preferences
+    - gsettings set org.gnome.desktop.network-connection check-connectivity false  # Disable connectivity checking
+    - gsettings set org.gnome.settings-daemon.plugins.location active false  # Disable automatic device location
+    - gsettings set org.gnome.desktop.interface enable-file-history false  # Disable file history
+    - gsettings set org.gnome.desktop.file-trash empty-time 30  # Set automatic delete period to 30 days
+    - gsettings set org.gnome.desktop.file-trash empty-on-delete true  # Automatically delete trash content
+    - gsettings set com.ubuntu.update-notifier show-livepatch false  # Disable error report sending to Canonical
+
